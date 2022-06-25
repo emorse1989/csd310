@@ -1,0 +1,72 @@
+//Student Document
+{
+    "student_id" : "21235533",
+    "first_name" : "Evan",
+    "last_name" : "Morse",
+    "enrollments" : [
+        {
+            "term" : "Fall 2021",
+            "gpa" : "4.0",
+            "start_date" : "2021-08-09",
+            "end_date" : "2021-12-19",
+            "classes" : [
+                {
+                    "course_id" : "CYBR250",
+                    "description" : "Intro to Cyber Threats",
+                    "instructor" : "Jill Lenz",
+                    "grade" : "A"
+                },
+                {
+                    "course_id" : "CIS245",
+                    "description" : "Introduction to Programming",
+                    "instructor" : "Robert Kumar",
+                    "grade" : "A"
+                },
+                {
+                    "course_id" : "CIS311",
+                    "description" : "Network Security",
+                    "instructor" : "Dave Petty",
+                    "grade" : "A"
+                },
+                {
+                    "course_id" : "CIS312",
+                    "description" : "Securing Access Control",
+                    "instructor" : "Byron Richard",
+                    "grade" : "A"
+                }
+            ]
+        },
+        {
+            "term" : "Spring 2022",
+            "gpa" : "4.0",
+            "start_date" : "2022-01-03",
+            "end_date" : "2022-05-15",
+            "classes" : [
+                {
+                    "course_id" : "CIS411",
+                    "description" : "Assessments and Audits",
+                    "instructor" : "John Quinn",
+                    "grade" : "A"
+                },
+                {
+                    "course_id" : "CYBR320",
+                    "description" : "Operational Security",
+                    "instructor" : "Byron Richard",
+                    "grade" : "A"
+                },
+                {
+                    "course_id" : "CYBR340",
+                    "description" : "Operating Systems & Mobile Dev",
+                    "instructor" : "Byron Richard",
+                    "grade" : "A"
+                },
+                {
+                    "course_id" : "CYBR350",
+                    "description" : "Web, Commerce, & Application Security",
+                    "instructor" : "Arlecia Johnson",
+                    "grade" : "A"
+                }
+            ]
+        }
+    ]
+}
