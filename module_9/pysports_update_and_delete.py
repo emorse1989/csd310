@@ -23,7 +23,7 @@ def PlayerList():
     "FROM player " +
     "INNER JOIN team " +
     "ON player.team_id=team.team_id;"
-)
+    )
     players = cursor.fetchall()
     for player in players:
         print(f"Player ID: {player[0]}")
