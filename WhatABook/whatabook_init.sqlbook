@@ -1,5 +1,8 @@
 -- SQLBook: Code
 
+-- ensure whatabook database is selected
+USE whatabook;
+
 -- drop test user if exists 
 DROP USER IF EXISTS 'whatabook_user'@'localhost';
 
