@@ -1,6 +1,14 @@
 # Import mysql commands to connect to server
 import mysql.connector
 from time import sleep
+from os import system, name
+
+# Screen clear function
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 # Connection settings
 config = {
@@ -19,6 +27,7 @@ cursor = db.cursor()
 
 # Main Menu UI 
 def main_menu():
+    clear()
     print("*******************************")
     print("* -- What A Book Main Menu -- *")
     print("*******************************")
@@ -34,18 +43,23 @@ def main_menu():
 def main_choose_option():
     choice = input("\nPlease select an option (1-4): ")
     if choice == '1':
+        clear()
         list_books()
     elif choice == '2':
+        clear()
         list_locations()
     elif choice == '3':
+        clear()
         validate_user()
     elif choice == '4':
+        clear()
         input("\nThank you for using What A Book! Press enter to exit.")
         db.close()
         exit()    
     else:
         print("\nInput not recognized. Please try again.\n")
         sleep(1)
+
 
 # Retrieves book list and cycles through books
 def list_books():
