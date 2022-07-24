@@ -110,6 +110,7 @@ def validate_user():
 
 # Displays user menu
 def user_menu(user_id):
+    clear()
     print("***************************")
     print("* -- USER ACCOUNT MENU -- *")
     print("***************************")
@@ -123,11 +124,14 @@ def user_menu(user_id):
 def user_choose_option(user_id):
     choice = input("\nPlease select an option (1-3): ")
     if choice == "1":
+        clear()
         wishlist(user_id)
         user_menu(user_id)
     elif choice == "2":
+        clear()
         books_not_in_wishlist(user_id)
     elif choice == "3":
+        clear()
         main_menu()
     else:
         print("Input not recognized. Please try again.")
