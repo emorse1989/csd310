@@ -167,6 +167,7 @@ def add_book_to_wishlist(user_id, book_id):
     )
     book = cursor.fetchone()
     print(f"\nAdded {book[0]} to your wishlist!\n")
+    input("Press enter to return to the user menu.")
     user_menu(user_id)
 
 # Lists books to add to wishlist, then has user pick a book
