@@ -1,0 +1,110 @@
+-- SQLBook: Code
+
+-- drop test user if exists 
+DROP USER IF EXISTS 'whatabook_user'@'localhost';
+
+
+-- create whatabook_user and grant them all privileges to the whatabook database 
+CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
+
+-- grant all privileges to the whatabook database to user whatabook_user on localhost 
+GRANT ALL PRIVILEGES ON whatabook.* TO 'whatabook_user'@'localhost';
+
+
+-- drop tables if they are present
+DROP TABLE IF EXISTS wishlist;
+DROP TABLE IF EXISTS book;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS store;
+
+
+-- create the user table 
+CREATE TABLE user (
+    user_id     INT             NOT NULL    AUTO_INCREMENT,
+    first_name  VARCHAR(75)     NOT NULL,
+    last_name   VARCHAR(75)     NOT NULL,
+    PRIMARY KEY(user_id)
+); 
+
+-- create the book table
+CREATE TABLE book (
+    book_id     INT             NOT NULL    AUTO_INCREMENT,
+    book_name   VARCHAR(200)    NOT NULL,
+    details     VARCHAR(500)    NOT NULL,
+    author      VARCHAR(200)    NOT NULL,
+    PRIMARY KEY(book_id)
+);
+
+-- create the store table
+CREATE TABLE store (
+    store_id    INT             NOT NULL        AUTO_INCREMENT,
+    locale      VARCHAR(500)    NOT NULL,
+    PRIMARY KEY(store_id)
+);
+
+-- create the wishlist table
+CREATE TABLE wishlist (
+    wishlist_id     INT     NOT NULL    AUTO_INCREMENT,
+    user_id         INT     NOT NULL,
+    book_id         INT     NOT NULL,
+    PRIMARY KEY(wishlist_id),
+    CONSTRAINT fk_user
+    FOREIGN KEY(user_id)
+        REFERENCES user(user_id),
+    CONSTRAINT fk_book
+    FOREIGN KEY(book_id)
+        REFERENCES book(book_id)
+);
+
+
+-- insert user information
+INSERT INTO user(first_name, last_name)
+    VALUES('Harry', 'Potter');
+
+INSERT INTO user(first_name, last_name)
+    VALUES('Ronald', 'Weasley');
+INSERT INTO user(first_name, last_name)
+    VALUES('Hermione', 'Granger');
+
+
+-- insert book records 
+INSERT INTO book(book_name, details, author) 
+    VALUES('Hogwarts: A History', 'Details the evolution of Hogwarts, its classes, its foundations, and its culture', 'Bathilda Bagshot');
+
+INSERT INTO book(book_name, details, author) 
+    VALUES('Quidditch Through the Ages', "A deep history of the wizarding world's favorite sport", 'Kennilworthy Whisp');
+
+INSERT INTO book(book_name, details, author)
+    VALUES('Magical Me', 'The famous Gilderoy Lockhart tells all in his first autobiography', ' Gilderoy Lockhart');
+
+INSERT INTO book(book_name, details, author)
+    VALUE('Moste Potente Potions', 'Potion recipes for the advanced potion maker', 'Phineas Bourne');
+
+INSERT INTO book(book_name, details, author)
+    VALUE('The Life and Lies of Albus Dumbledore', 'Groundbreaking new evidence reveals the dark past of famed Hogwarts headmaster Albus Dumbledore', 'Rita Skeeter');
+
+INSERT INTO book(book_name, details, author)
+    VALUE('Fantastic Beasts and Where to Find Them', 'A bestiary of magical beasts found around the world', 'Newt Scamander');
+
+INSERT INTO book(book_name, details, author)
+    VALUE('The Tales of Beedle the Bard', 'A collection of stories for young wizards and witches', 'Beedle the Bard');
+
+INSERT INTO book(book_name, details, author)
+    VALUE('A History of Magic', 'A penultimate record of important moments in wizarding history', 'Bathilda Bagshot');
+
+INSERT INTO book(book_name, details, author)
+    VALUE('Magical Water Plants of the Highland Rocks', "A herbology book indexing a variety of magical plants found in the waters of the UK's northern highlands", 'Hadrian Whittle');
+
+-- insert store information
+INSERT INTO store(locale)
+    VALUE('6000 Universal Blvd, Orlando, FL 32819');
+
+-- insert wishlist records
+INSERT INTO wishlist(user_id, book_id)
+    VALUE(1, 2);
+
+INSERT INTO wishlist(user_id, book_id)
+    VALUE(2, 7);
+
+INSERT INTO wishlist(user_id, book_id)
+    VALUE(3, 8);
